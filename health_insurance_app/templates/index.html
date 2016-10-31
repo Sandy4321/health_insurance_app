@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <style>
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:clicked {
+        color: black;
+      }
+
+      body { 
+        background-color: #e2e1e9;
+      }
+
+      div.link {
+        position: absolute;
+        display: inline-block;
+        margin-top: 30px;
+        margin-bottom:50px;
+        height: 70px;
+        width: 200px;
+        color: black;
+        background-color: #a3bbc7;
+        border-radius: 5%;
+      }
+
+      #overview {
+        position: relative;
+        display: inline-block;
+        float: left;
+        margin-left:5%;
+      }
+    
+      #description {
+        position: relative;
+        display: inline-block;
+        float: left;
+        margin-left:15%;
+      }
+
+      h3 {
+        position: relative; 
+        text-align: center;
+      }
+
+      #explore {
+        margin-left: 15%;
+      }
+
+      #model {
+        margin-left: 65%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='overview'>
+      <h1>Project McNulty</h3>
+      <h2>Data Source</h2>
+        <ul>
+          <li>US Census</li>
+        </ul>
+      <br/><br/>
+      <h2>Tools</h2>
+        <ul>
+          <li>Python (Sklearn, Pandas, Matplotlib)</li>
+          <li>D3</li>
+        </ul>
+    </div>
+    <div id='description'>
+      <h2>Project Description</h2>
+      <p> Using county-level health insurance data from 2008 to 2014 gathered by the US Census, <br>
+          I created a model to predict whether a county would be above the national <br>
+          average in percentage of population that has health insurance. </p>
+      <h2>Model</h2>
+      <p>After trying out many classifiers, I decided to go with logistic regression<br>
+         which consistently had the best results. The only input feature I used was <br>
+         the percentage of the county's population at or below 138% poverty level. <br>
+         While modeling, I tried to incorporate political data, but I only had gathered<br>
+         the necessary data for 2012 and 2014. Though this did improve the model's results<br>
+         for these years, I decided to leave this feature out until I can get more data to <br>
+         cover a broader time period. That said, due to the high correlation between poverty<br>
+         level and the percentage of population with health insurance, the model was able to<br>
+         get decent results: <br>
+        <ul>
+          <li>2008: ROC AUC Score - .73, Accuracy - .81</li>
+          <li>2009: ROC AUC Score - .76, Accuracy - .86</li>
+          <li>2010: ROC AUC Score - .74, Accuracy - .82</li>
+          <li>2011: ROC AUC Score - .76, Accuracy - .84</li>
+          <li>2012: ROC AUC Score - .75, Accuracy - .83</li>
+          <li>2013: ROC AUC Score - .75, Accuracy - .83</li>
+          <li>2014: ROC AUC Score - .71, Accuracy - .78</li>
+      </ul><br>
+      The lowest score is in 2014. I think this might be due to the fact that the correlation<br>
+      between poverty and lack of health insurance is weaker as more people are getting <br>
+      health insurance under the Affordable Care Act. </p>
+      <p>Follow the links below to explore the data with some interactive graphs and to see <br>
+         some of the results of my model</p>
+  
+      
+    <a href={{url_for('explore')}}>
+      <div id='explore' class='link'>
+        <h3>Explore the data!</h3>
+      </div>
+    </a>
+    <a href={{url_for('model')}}>
+    <div id='model' class='link'>
+      <h3>Model results</h3>
+    </div>
+    </a>
+  <body>
+</html>

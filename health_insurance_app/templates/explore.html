@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <style>
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:clicked {
+        color: black;
+      }
+
+      body { 
+        background-color: #e2e1e9;
+      }
+
+      div {
+        position: absolute;
+        display: inline-block;
+        margin-top: 15%;
+        height: 70px;
+        width: 200px;
+        color: black;
+        background-color: #a3bbc7;
+        border-radius: 5%;
+      }
+
+      h3 {
+        position: relative; 
+        text-align: center;
+      }
+
+      #insurance {
+        margin-left: 35%;
+      }
+
+      #poverty {
+        margin-left: 55%;
+      }
+    </style>
+  </head>
+  <body>
+    <a href={{url_for('insurance')}}>
+      <div id='insurance'>
+        <h3>Health Insurance Rates</h3>
+      </div>
+    </a>
+    <a href={{url_for('poverty')}}>
+    <div id='poverty'>
+      <h3>Poverty Rates</h3>
+    </div>
+    </a>
+  <body>
+</html>
